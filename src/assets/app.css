@@ -1,0 +1,194 @@
+@import "../../node_modules/minireset.css/minireset.css";
+
+:root {
+    --color-primary: #252223;
+    --color-secondary: #0760fb;
+    --color-green: green;
+    --color-red: red;
+    --background: #f3f3f3;
+    --background-light: #ffffff;
+    --border: #d4d5d7;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--color-primary);
+    line-height: 1.6;
+    background: var(--background);
+    scroll-margin: 100px 0 0;
+    word-break: break-word;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .todo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 50px;
+  }
+
+  .todo__input {
+    background-color: var(--background-light);
+    font-family: inherit;
+    font-size: 1.6rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 2.6rem;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .todo__input::placeholder {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  .todo__input:focus-visible {
+    outline: none;
+  }
+
+  .todo__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .todo__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: var(--background-light);
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .todo__item__check {
+    appearance: none;
+    background-color: transparent;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+
+  .todo__item__check:checked {
+    position: relative;
+    border-color: var(--color-green);
+  }
+
+  .todo__item__check:checked::before {
+    content: "";
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    background-color: var(--color-green);
+    width: 2px;
+    height: 0.5rem;
+  }
+  
+  .todo__item__check:checked::after {
+    content: "";
+    position: absolute;
+    top: 53%;
+    left: 60%;
+    transform: translate(-50%, -50%) rotate(35deg);
+    background-color: var(--color-green);
+    width: 2px;
+    height: 0.875rem;
+  }
+
+  .todo__item__label {
+    position: relative;
+    width: 100%;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .todo__item__label > label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .todo__item__label > input {
+    display: none;
+    font-family: inherit;
+    position: absolute;
+    inset: 0;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .todo__item__delete {
+    display: none;
+    border: none;
+    background-color: transparent;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--color-red);
+    cursor: pointer;
+    padding: 0.375rem;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+  }
+
+  .todo__item:hover .todo__item__delete {
+    display: flex;
+  }
+
+  .todo__filters {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .todo__filter > a {
+    text-decoration: none;
+    color: var(--color-primary);
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .todo__filter:hover > a {
+    opacity: 0.75;
+  }
+  
+  .todo__filter > a > span {
+    background-color: var(--color-primary);
+    color: var(--background-light);
+    border-radius: 1rem;
+    padding: 0.1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+  
+  .todo__filter.active > a {
+    color: var(--color-secondary);
+    opacity: 1;
+  }
+  
+  .todo__filter.active > a > span {
+    background-color: var(--color-secondary);
+  }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <div class="todo">
+      <input
+        type="text"
+        class="todo__input"
+        autofocus
+        placeholder="What is yout main goal for today?"
+      />
+      <ul class="todo__filters">
+        <li class="todo__filter active" data-filter="all">
+          <a href="#/">All <span>0</span></a>
+        </li>
+        <li class="todo__filter" data-filter="active">
+          <a href="#/active">Active <span>0</span></a>
+        </li>
+        <li class="todo__filter" data-filter="completed">
+          <a href="#/completed">Completed <span>0</span></a>
+        </li>
+      </ul>
+      <ul class="todo__list"></ul>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
